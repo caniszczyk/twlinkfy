@@ -1,0 +1,10 @@
+{
+ "extName": {
+  "message": "Twlinkfy",
+  "description": "Extension name"
+ },
+ "extDesc": {
+  "message": "Autolink Twitter usernames and hashtags",
+  "description": "Extension description"
+ }
+}

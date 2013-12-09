@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Twlinkfy Tests</title>
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css">
+    <script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+    <script src="ext/src/twlinkfy.js"></script>
+    <script>
+      function id(value) {
+        return document.getElementById(value);
+      }
+
+      test('Do not match an already linked username', function() {
+        var node = id('do-not-match-twitter-linkified-username');
+        var nodes = getNodes(node);
+        equal(nodes.length, 0, 'No nodes found');
+      });
+
+      test('Do not match in a text area', function() {
+        var node = id('do-not-match-twitter-in-textarea');
+        var nodes = getNodes(node);
+        equal(nodes.length, 0, 'No nodes found');
+      });
+
+      test('Match twitter username', function() {
+        var node = id('match-twitter-username');
+        equal(node.innerHTML, '@cra alw@ys testing', "Usernames with no links");
+        var nodes = getNodes(node);
+        replaceNodes(nodes);
+        equal(node.innerHTML, '<span><a href=\"https://twitter.com/intent/user?screen_name=@cra\">@cra</a> alw@ys testing</span>');
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id="qunit"></div>
+
+    <div id="qunit-fixture">
+	  <p id="match-twitter-username">@cra alw@ys testing</p>
+      <p id="do-not-match-twitter-linkified-username"><a href="http://twitter.com/cra">@cra</a></p>
+      <p id="do-not-match-twitter-in-textarea"><textarea>@cra</textarea></p>
+    </div>
+  </body>
+</html>
