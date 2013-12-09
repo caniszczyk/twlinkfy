@@ -2,7 +2,7 @@
 
 A chrome extension to autolink Twitter usernames and hashtags
 
-# #Authors
+## Authors
 
 * Chris Aniszczyk (@cra)
 
