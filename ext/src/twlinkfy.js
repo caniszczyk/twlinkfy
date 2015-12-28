@@ -7,7 +7,7 @@ var regex = new RegExp("^@\\w+", "g");
     for (var i = 0; i < nodes.length; i++) {
         var node = nodes[i];
         var newVal = node.nodeValue;
-        newVal = newVal.replace(regex, "<a href=\"https://twitter.com/intent/user?screen_name=$&\">" + '$&' + "</a>")
+        newVal = newVal.replace(regex, "<a href=\"https://twitter.com/intent/user?screen_name=$&\">" + '$&' + "</a>")hfghg
         if (newVal !== node.nodeValue) {
             var wrapper = document.createElement("span");
             wrapper.innerHTML = newVal;
